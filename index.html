@@ -39,7 +39,9 @@
     <input type="text" :placeholder="instrucaoDePreenchimento"> <br>
     <input type="checkbox" :checked="check"> <br> <br> <br>
 
-    <input type="text" :value="2 + 2" :class="teste ? 'azul' : 'vermelho' ">
+    <input type="text" :value="2 + 2" :class="teste ? 'azul' : 'vermelho' "> <br> <br>
+
+    <button @click="mensagemAlerta">Botao</button>
 
   </div>
   
@@ -93,6 +95,9 @@
         },
         dividir() { //forma enxuta de definir os pares de chave/valor
           return this.n1 / this.n2
+        },
+        mensagemAlerta() {
+          alert('Mensagem de Alerta')
         }
       }
     })
