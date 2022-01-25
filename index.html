@@ -42,7 +42,7 @@
     <input type="text" :value="2 + 2" :class="teste ? 'azul' : 'vermelho' "> <br> <br>
 
     <input type="text" @keyup="imprimirTexto('Enviando parametro', 5, xyz)">
-    <button @click="mensagemAlerta">Botao</button>
+    <button @click="mensagemAlerta($event)">Botao</button>
 
   </div>
   
@@ -98,8 +98,9 @@
         dividir() { //forma enxuta de definir os pares de chave/valor
           return this.n1 / this.n2
         },
-        mensagemAlerta() {
+        mensagemAlerta(event) {
           alert('Mensagem de Alerta')
+          console.log(event)
         },
         imprimirTexto(t, n, x) {
           console.log(t)
