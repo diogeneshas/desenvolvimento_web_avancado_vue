@@ -14,7 +14,13 @@
     Valor total: {{ valorTotal }} <br>
     logado: {{ logado }} <br>
     Hobbie: {{ hobbies[3] }} <br>
-    Perfil: {{ perfil.site }}, {{ perfil.cursos[0].nome }}
+    Perfil: {{ perfil.site }}, {{ perfil.cursos[0].nome }} <br>
+
+    Somar: {{ somar() }} <br>
+    Subtrair: {{ subtrair() }} <br>
+    Multiplicar: {{ multiplicar() }} <br>
+    Dividir: {{ dividir() }}
+
   </div>
   
   <script>
@@ -46,10 +52,24 @@
             }
           ]
         },
+      },
+
+      methods: {
+        somar: function somar() { //convencional
+          return 4 + 2
+        },
+        subtrair: function() { //anonima
+          return 4 - 2
+        },
+        multiplicar: () => { //arrow function
+          return 4 * 2
+        },
+        dividir() { //forma enxuta de definir os pares de chave/valor
+          return 4 / 2
+        }
       }
     })
 
-    console.log(vm)
   </script>
 </body>
 </html>
