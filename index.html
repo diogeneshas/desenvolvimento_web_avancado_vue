@@ -52,20 +52,22 @@
             }
           ]
         },
+        n1: 10,
+        n2: 5
       },
 
       methods: {
         somar: function somar() { //convencional
-          return 4 + 2
+          return this.n1 + this.n2
         },
         subtrair: function() { //anonima
-          return 4 - 2
+          return this.n1 - this.n2
         },
         multiplicar: () => { //arrow function
           return 4 * 2
         },
         dividir() { //forma enxuta de definir os pares de chave/valor
-          return 4 / 2
+          return this.n1 / this.n2
         }
       }
     })
