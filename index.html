@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="vue.min.js"></script>
+  <style>
+    .verde {
+      color: green
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +24,12 @@
     Somar: {{ somar() }} <br>
     Subtrair: {{ subtrair() }} <br>
     Multiplicar: {{ multiplicar() }} <br>
-    Dividir: {{ dividir() }}
+    Dividir: {{ dividir() }} <br> <br> <br>
+
+    <a v-bind:href="site">Site</a>
+    <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+    <input type="text" v-bind:placeholder="instrucaoDePreenchimento"> <br>
+    <input type="checkbox" v-bind:checked="check">
 
   </div>
   
@@ -53,7 +63,11 @@
           ]
         },
         n1: 10,
-        n2: 5
+        n2: 5,
+        site: 'https://jorgesantana.net.br',
+        cor: 'verde',
+        instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
+        check: true
       },
 
       methods: {
