@@ -18,6 +18,21 @@
     .vermelho {
       background-color: red;
     }
+
+    .borda {
+      border: 1px solid;
+    }
+
+    .div-principal {
+      width: 200px;
+      height: 200px;
+    }
+
+    .div-comum {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -42,7 +57,17 @@
     <input type="text" :value="2 + 2" :class="teste ? 'azul' : 'vermelho' "> <br> <br>
 
     <input type="text" @keyup="imprimirTexto('Enviando parametro', 5, xyz)">
-    <button @click="mensagemAlerta($event)">Botao</button>
+    <button @click="mensagemAlerta($event)">Botao</button> <br> <br> <br>
+
+    <div class="borda div-principal" :class="cor">
+      Cor: {{ cor }} <br>
+      Posicao X do Mouse: {{ posicaoX }} <br>
+      Posicao Y do Mouse: {{ posicaoY }}
+    </div>
+    <hr>
+    <div @click="mudarCor('azul')" class="borda div-comum"></div>
+    <div @mouseover="mudarCor('vermelho')" @mouseout="mudarCor('verde')" class="borda div-comum"></div>
+    <div @mousemove="coordenadas($event)" class="borda div-comum"></div>
 
   </div>
   
@@ -82,7 +107,9 @@
         instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
         check: true,
         teste: false,
-        xyz: true
+        xyz: true,
+        posicaoX: 0,
+        posicaoY: 0
       },
 
       methods: {
@@ -106,6 +133,13 @@
           console.log(t)
           console.log(n)
           console.log(x)
+        },
+        mudarCor(c) {
+          this.cor = c
+        },
+        coordenadas(e) {
+          this.posicaoX = e.clientX
+          this.posicaoY = e.clientY
         }
       }
     })
