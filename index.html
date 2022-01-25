@@ -41,6 +41,7 @@
 
     <input type="text" :value="2 + 2" :class="teste ? 'azul' : 'vermelho' "> <br> <br>
 
+    <input type="text" @keyup="imprimirTexto('Enviando parametro', 5, xyz)">
     <button @click="mensagemAlerta">Botao</button>
 
   </div>
@@ -80,7 +81,8 @@
         cor: 'verde',
         instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
         check: true,
-        teste: false
+        teste: false,
+        xyz: true
       },
 
       methods: {
@@ -98,6 +100,11 @@
         },
         mensagemAlerta() {
           alert('Mensagem de Alerta')
+        },
+        imprimirTexto(t, n, x) {
+          console.log(t)
+          console.log(n)
+          console.log(x)
         }
       }
     })
