@@ -38,6 +38,7 @@
 <body>
 
   <div id="app">
+    <div>
     {{ mensagem }} <br>
     Valor total: {{ valorTotal }} <br>
     logado: {{ logado }} <br>
@@ -98,6 +99,24 @@
     <div id="bloco">conteudo interno da div</div> <br>
     <button @click="selecionarElementoFilho()">Botao</button>
   </div>
+
+    <br>
+    <hr>
+    <br>
+  <!-- v-if simples -->
+  <button @click="exibirSaldo = !exibirSaldo">
+    <span v-if="!exibirSaldo">Exibir saldo</span>
+    <span v-if="exibirSaldo">Ocultar saldo</span>
+  </button>
+  <p>Saldo: <span v-if="exibirSaldo">R$ {{ saldo }}</span></p>
+
+  <!-- v-if e v-else  -->
+  Idade: <input type="text" id="inputIdade" @blur="setIdade()">
+  <p v-if="idade < 18">Menor de Idade <a><span></span></a></p>
+  <p v-else>Maior de idade</p>
+
+
+  </div>
   <script>
 
     const vm = new Vue({
@@ -141,6 +160,9 @@
         cliques: 0,
         formulario: '',
         teclas: '',
+        saldo: '4570.17',
+        exibirSaldo: false,
+        idade: 0
       },
 
       methods: {
@@ -189,6 +211,9 @@
           console.log(opcoes.value)
           console.log(paragrafo.style.color)
           console.log(bloco.innerHTML)
+        },
+        setIdade() {
+          this.idade = inputIdade.value
         }
       }
     })
