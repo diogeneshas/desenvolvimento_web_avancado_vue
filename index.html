@@ -69,8 +69,23 @@
     <div @mouseover="mudarCor('vermelho')" @mouseout="mudarCor('verde')" class="borda div-comum"></div>
     <div @mousemove="coordenadas($event)" class="borda div-comum"></div>
 
+    <hr>
+
+    <a href="https://jorgesantana.net.br" target="_blank" @click.prevent="prevenirComportamentoPadrao()">Link</a>
+    {{ msg }}
+    <hr>
+    <button @click.once="executarUmaVez()">Botao</button>
+    <p>Cliques: {{ cliques }}</p>
+    <hr>
+    <form @submit.prevent.once="prevenirUmaVez()">
+      <button type="submit">Enviar</button>
+    </form>
+    <p>Formulario: {{ formulario }}</p>
+    <hr>
+    <input type="text" @keyup.Shift.Enter="capturandoTeclas($event)">
+    <p>Teclas: {{ teclas }}</p>
+    
   </div>
-  
   <script>
 
     const vm = new Vue({
@@ -109,7 +124,11 @@
         teste: false,
         xyz: true,
         posicaoX: 0,
-        posicaoY: 0
+        posicaoY: 0,
+        msg: '',
+        cliques: 0,
+        formulario: '',
+        teclas: '',
       },
 
       methods: {
@@ -140,6 +159,18 @@
         coordenadas(e) {
           this.posicaoX = e.clientX
           this.posicaoY = e.clientY
+        },
+        prevenirComportamentoPadrao() {
+          this.msg = 'Comportamento padrao ativado'
+        },
+        executarUmaVez() {
+          this.cliques++
+        },
+        prevenirUmaVez() {
+          this.formulario = 'Prevenindo o comportamento padrao'
+        },
+        capturandoTeclas(e) {
+          this.teclas += e.key
         }
       }
     })
