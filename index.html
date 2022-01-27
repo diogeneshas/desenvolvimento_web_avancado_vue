@@ -84,7 +84,19 @@
     <hr>
     <input type="text" @keyup.Shift.Enter="capturandoTeclas($event)">
     <p>Teclas: {{ teclas }}</p>
-    
+
+    <hr>
+    <input type="text" name="" id="inputTexto">
+    <br>
+    <select name="" id="opcoes">
+      <option value="A">Opcao 1</option>
+      <option value="B">Opcao 2</option>
+      <option value="C">Opcao 2</option>
+    </select>
+    <br>
+    <p id="paragrafo" style="color:red">Paragrafo</p>
+    <div id="bloco">conteudo interno da div</div> <br>
+    <button @click="selecionarElementoFilho()">Botao</button>
   </div>
   <script>
 
@@ -171,6 +183,12 @@
         },
         capturandoTeclas(e) {
           this.teclas += e.key
+        },
+        selecionarElementoFilho() {
+          console.log(inputTexto.value)
+          console.log(opcoes.value)
+          console.log(paragrafo.style.color)
+          console.log(bloco.innerHTML)
         }
       }
     })
