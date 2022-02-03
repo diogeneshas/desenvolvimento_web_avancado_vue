@@ -115,12 +115,15 @@
   <p v-if="idade < 18">Menor de Idade <a><span></span></a></p>
   <p v-else>Maior de idade</p>
 
-
+  <!-- v-show  -->
   <p @mouseover="exibirTextoAjuda = true" @mouseout="exibirTextoAjuda = false">Exemplo tooltip</p>
   <div v-show="exibirTextoAjuda">
     <h3>Titulo texto ajuda</h3>
     <p>Conteudo texto ajuda</p>
   </div>
+
+  <!-- v-HTML  -->
+  <div v-html="elementosHTML"></div>
 
   </div>
   <script>
@@ -169,7 +172,8 @@
         saldo: '4570.17',
         exibirSaldo: false,
         idade: 0,
-        exibirTextoAjuda: false
+        exibirTextoAjuda: false,
+        elementosHTML: '<p><b>Site</b></p><a href="https://jorgesantana.net.br">Jorge Sant Ana</a>'
       },
 
       methods: {
