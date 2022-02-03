@@ -125,6 +125,13 @@
   <!-- v-HTML  -->
   <div v-html="elementosHTML"></div>
 
+  <!-- v-once  -->
+  <p v-once>Saldo inicial: {{ saldo }}</p>
+  <p>Saldo atualizado: {{ saldo }}</p>
+  <input type="text" id="valor">
+  <button @click="creditar()">Creditar</button>
+  <button @click="debitar()">Debitar</button>
+
   </div>
   <script>
 
@@ -169,7 +176,7 @@
         cliques: 0,
         formulario: '',
         teclas: '',
-        saldo: '4570.17',
+        saldo: '4570',
         exibirSaldo: false,
         idade: 0,
         exibirTextoAjuda: false,
@@ -225,6 +232,12 @@
         },
         setIdade() {
           this.idade = inputIdade.value
+        },
+        creditar() {
+          this.saldo += parseFloat(valor.value)
+        },
+        debitar() {
+          this.saldo -= parseFloat(valor.value)
         }
       }
     })
