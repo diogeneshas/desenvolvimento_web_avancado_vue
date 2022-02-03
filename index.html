@@ -116,6 +116,12 @@
   <p v-else>Maior de idade</p>
 
 
+  <p @mouseover="exibirTextoAjuda = true" @mouseout="exibirTextoAjuda = false">Exemplo tooltip</p>
+  <div v-show="exibirTextoAjuda">
+    <h3>Titulo texto ajuda</h3>
+    <p>Conteudo texto ajuda</p>
+  </div>
+
   </div>
   <script>
 
@@ -162,7 +168,8 @@
         teclas: '',
         saldo: '4570.17',
         exibirSaldo: false,
-        idade: 0
+        idade: 0,
+        exibirTextoAjuda: false
       },
 
       methods: {
