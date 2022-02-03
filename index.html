@@ -158,6 +158,18 @@
     </tbody>
   </table>
 
+  <hr>
+
+  <ul>
+    <li v-for="p in publicacoes" style="border: solid 1px; margin-bottom:10px;">
+      <div>
+        {{p.publicacao}}
+        <hr>
+        <input type="text">
+      </div>
+    </li>
+  </ul>
+
   </div>
   <script>
 
@@ -211,7 +223,12 @@
         cursos2: {
           1000: { titulo: 'laravel', descricao: 'Domine o framework PHP mais poderoso'},
           1001: { titulo: 'Banco de dados', descricao: 'Aprenda os pricipais BDs'}
-        }
+        },
+        publicacoes: [
+          { id: 1, publicacao: 'Publicacao 1'},
+          { id: 2, publicacao: 'Publicacao 2'},
+          { id: 3, publicacao: 'Publicacao 3'}
+        ]
       },
 
       methods: {
