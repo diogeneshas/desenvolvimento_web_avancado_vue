@@ -132,6 +132,32 @@
   <button @click="creditar()">Creditar</button>
   <button @click="debitar()">Debitar</button>
 
+  <!-- v-for  -->
+  <ul>
+    <li v-for="(curso, key) in cursos"> {{ key }} - {{ curso }}</li>
+    <p></p>
+    <li v-for="(curso, key) in cursos" v-text="key + ' - ' + curso "></li>
+  </ul>
+
+  <hr>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Descricao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="({titulo, descricao}, chave) in cursos2"> <!--destructuring assignment -->
+        <td>{{chave}}</td>
+        <td>{{titulo}}</td>
+        <td>{{descricao}}</td>
+      </tr>
+    </tbody>
+  </table>
+
   </div>
   <script>
 
@@ -180,7 +206,12 @@
         exibirSaldo: false,
         idade: 0,
         exibirTextoAjuda: false,
-        elementosHTML: '<p><b>Site</b></p><a href="https://jorgesantana.net.br">Jorge Sant Ana</a>'
+        elementosHTML: '<p><b>Site</b></p><a href="https://jorgesantana.net.br">Jorge Sant Ana</a>',
+        cursos: ['laravel', 'web completo', 'banco de dados', 'solid', 'angular', 'vuejs'],
+        cursos2: {
+          1000: { titulo: 'laravel', descricao: 'Domine o framework PHP mais poderoso'},
+          1001: { titulo: 'Banco de dados', descricao: 'Aprenda os pricipais BDs'}
+        }
       },
 
       methods: {
